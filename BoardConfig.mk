@@ -95,6 +95,44 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset 
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE) --board "" --dtb $(TARGET_PREBUILT_DTB)
 
+# SHRP flags
+SHRP_PATH := $(DEVICE_PATH)
+SHRP_MAINTAINER := corsicanu
+SHRP_DEVICE_CODE := $(DEVICE_CODENAME)
+SHRP_EDL_MODE := 0
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+SHRP_CUSTOM_FLASHLIGHT := true
+SHRP_FONP_1 := /sys/devices/virtual/camera/flash/rear_flash
+SHRP_FONP_2 := 
+SHRP_FONP_3 := 
+SHRP_FLASH_MAX_BRIGHTNESS := 1
+SHRP_REC := /dev/block/platform/13100000.ufs/by-name/recovery
+SHRP_AB := false
+SHRP_REC_TYPE := normal
+SHRP_DEVICE_TYPE := A_Only
+SHRP_STATUSBAR_RIGHT_PADDING := 40
+SHRP_STATUSBAR_LEFT_PADDING := 40
+SHRP_EXPRESS := true
+SHRP_OFFICIAL := true
+SHRP_DARK := true
+SHRP_ALT_REBOOT := true
+LZMA_RAMDISK_TARGETS := recovery
+LZMA_COMPRESSION := -9
+
+# SHRP addons
+SHRP_EXTERNAL_ADDON_PATH := $(DEVICE_PATH)/addons/
+SHRP_SKIP_DEFAULT_ADDON_1 := true
+
+SHRP_EXTERNAL_ADDON_1_NAME := "Bootlogo patcher"
+SHRP_EXTERNAL_ADDON_1_INFO := "Disable bootlogo warnings - exynos only"
+SHRP_EXTERNAL_ADDON_1_FILENAME := "TWRP_Bootlogo_patcher_v1.7.zip"
+SHRP_EXTERNAL_ADDON_1_BTN_TEXT := "Patch now"
+SHRP_EXTERNAL_ADDON_1_SUCCESSFUL_TEXT := "Successfuly patched"
+SHRP_INC_IN_REC_EXTERNAL_ADDON_1 := true
+
 # Include
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
